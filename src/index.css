@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -30,6 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Albert Sans', sans-serif;
 }
 
 h1 {
@@ -67,4 +69,13 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@theme {
+  --color-brand-primary: #7146b5;
+
+  --color-gray-700: #585858;
+  --color-gray-800: #424242;
+
+  --color-green-0: #ebf5eb;
 }
