@@ -1,12 +1,12 @@
 .clutch-header {
-    width: 100%;
-    border-bottom: 1px solid var(--color-gray-0);
-    padding: 16px 8px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  width: 100%;
+  border-bottom: 1px solid var(--color-gray-0);
+  padding: 16px 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .clutch-header__image {
-    height: 33px;
+  height: 33px;
 }

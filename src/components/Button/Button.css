@@ -1,45 +1,49 @@
 .clutch-button {
-    background-color: var(--color-brand-primary);
-    border-radius: 8px;
-    font-weight: 700;
+  background-color: var(--color-brand-primary);
+  border-radius: 8px;
+  font-weight: 700;
 
-    font-size: 14px;
-    text-align: center;
-    color: var(--color-white);
-    text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  color: var(--color-white);
+  text-transform: uppercase;
 
-    transition: opacity 0.2s;
-    cursor: pointer;
+  transition: opacity 0.2s;
+  cursor: pointer;
 }
 
 .clutch-button--fullwidth {
-    width: 100%;
+  width: 100%;
 }
 
 .clutch-button:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
 
 .clutch-button--small {
-    padding: 8px 8px;
+  padding: 8px 8px;
 }
 
 .clutch-button--large {
-    padding: 16px 8px;
+  padding: 16px 8px;
 }
 
 .clutch-button:disabled {
-    opacity: 50%;
+  opacity: 50%;
 }
 
 .clutch-button__spinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid currentColor;
-    border-right-color: transparent;
-    border-radius: 9999px;
-    display: inline-block;
-    animation: loading-spin 0.8s linear infinite;
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 9999px;
+  display: inline-block;
+  animation: loading-spin 0.8s linear infinite;
 }
 
-@keyframes loading-spin { to { transform: rotate(360deg); } }
+@keyframes loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
