@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  padding: 10px 24px;
+  padding: 10px 24px 120px 24px;
   @container style(--is-desktop: true) {
     grid-template-columns: repeat(2, 1fr);
-    padding: 50px 10px;
+    padding: 50px 10px 120px 10px;
   }
 }
 
