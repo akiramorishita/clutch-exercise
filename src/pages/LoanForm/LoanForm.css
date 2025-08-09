@@ -1,0 +1,27 @@
+.clutch-loanForm__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding: 10px 24px;
+  @container style(--is-desktop: true) {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 50px 10px;
+  }
+}
+
+.clutch-loanForm__form {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @container style(--is-desktop: true) {
+    width: 458px;
+    justify-self: end;
+  }
+}
+
+.clutch-loanForm__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
