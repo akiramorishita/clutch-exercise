@@ -5,12 +5,31 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Button from '../../components/Button/Button';
 import Select from '../../components/Select/Select';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import UserCostInfo from './components/UserCostInfo';
+import { postOffer } from '../../api/offers';
 
 const LoanForm = () => {
-  const [select, setSelect] = useState('');
+  const [select1, setSelect1] = useState('');
   const [input, setInput] = useState('');
+  const [select2, setSelect2] = useState('');
+
+  useEffect(() => {
+    const getOffer = async () => {
+      const result = postOffer({
+        loanPurpose: select1,
+        amount: Number(input),
+        terms: Number(select2)
+      });
+
+      console.log('Offer result:', result);
+    };
+
+    if (select1 && input && select2) {
+      getOffer();
+    }
+  }, [select1, input, select2]);
+
   return (
     <div className="clutch-loanForm">
       <Header />
@@ -23,8 +42,8 @@ const LoanForm = () => {
               id="loanPurpose"
               label="Loan Purpose"
               placeholder="Select an option"
-              onChange={setSelect}
-              value={select}
+              onChange={setSelect1}
+              value={select1}
               options={[
                 { value: 'debtConsolidation', label: 'Debt Consolidation' },
                 { value: 'personal', label: 'Personal' },
@@ -41,8 +60,8 @@ const LoanForm = () => {
               id="loanTerm"
               label="Loan Term (months)"
               placeholder="Select an option"
-              onChange={setSelect}
-              value={select}
+              onChange={setSelect2}
+              value={select2}
               options={[
                 { value: '12', label: '12 months' },
                 { value: '24', label: '24 months' },
