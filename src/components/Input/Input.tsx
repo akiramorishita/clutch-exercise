@@ -1,5 +1,5 @@
 import './Input.css';
-const ClutchInput = ({
+const Input = ({
   placeholder = 'Placeholder',
   id,
   ...props
@@ -14,4 +14,4 @@ const ClutchInput = ({
   );
 };
 
-export default ClutchInput;
+export default Input;

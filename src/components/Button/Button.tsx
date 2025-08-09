@@ -11,7 +11,7 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
 };
 
-function Button({
+const Button = ({
   text,
   onClick,
   size = ButtonSize.LARGE,
@@ -19,7 +19,7 @@ function Button({
   loading = false,
   className = '',
   ...rest
-}: Props) {
+}: Props) => {
   return (
     <button
       className={classNames(
@@ -41,6 +41,6 @@ function Button({
       )}
     </button>
   );
-}
+};
 
 export default Button;
