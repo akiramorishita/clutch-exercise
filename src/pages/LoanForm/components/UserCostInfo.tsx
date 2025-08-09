@@ -1,20 +1,34 @@
+import classNames from 'classnames';
+import type { OfferResponse } from '../../../types/offers';
 import './UserCostInfo.css';
-type DataType = {
-  title: string;
-  value: string;
-};
+import Skeleton from '../../../components/Skeleton/Skeleton';
+
 type UserCostInfoProps = {
-  data: DataType[];
+  data: OfferResponse | undefined;
+  isLoading: boolean;
 };
-const UserCostInfo = ({ data }: UserCostInfoProps) => {
+
+const UserCostInfo = ({ data, isLoading }: UserCostInfoProps) => {
+  if (!isLoading && !data) {
+    return null;
+  }
+
   return (
     <div className="clutch-loanForm-userCostInfo__container">
-      {data.map(({ title, value }) => (
-        <div key={title} className="clutch-loanForm-userCostInfo__item">
-          <h2 className="clutch-loanForm-userCostInfo__title">{title}</h2>
-          <p className="clutch-loanForm-userCostInfo__value">{value}</p>
-        </div>
-      ))}
+      <div className="clutch-loanForm-userCostInfo__item">
+        <h2 className="clutch-loanForm-userCostInfo__title">Monthly payment</h2>
+        <Skeleton isLoading={isLoading}>
+          <p className={classNames('clutch-loanForm-userCostInfo__value')}>
+            ${data?.monthlyPayments || 0}
+          </p>
+        </Skeleton>
+      </div>
+      <div className="clutch-loanForm-userCostInfo__item">
+        <h2 className="clutch-loanForm-userCostInfo__title">APR</h2>
+        <Skeleton isLoading={isLoading}>
+          <p className={classNames('clutch-loanForm-userCostInfo__value')}>{data?.apr}%</p>
+        </Skeleton>
+      </div>
     </div>
   );
 };

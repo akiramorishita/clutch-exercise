@@ -8,21 +8,26 @@ import Select from '../../components/Select/Select';
 import { useEffect, useState } from 'react';
 import UserCostInfo from './components/UserCostInfo';
 import { postOffer } from '../../api/offers';
+import type { OfferResponse } from '../../types/offers';
 
 const LoanForm = () => {
   const [select1, setSelect1] = useState('');
   const [input, setInput] = useState('');
   const [select2, setSelect2] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [userCostInfo, setUserCostInfo] = useState<OfferResponse | undefined>();
 
   useEffect(() => {
     const getOffer = async () => {
-      const result = postOffer({
+      setIsLoading(true);
+      const result = await postOffer({
         loanPurpose: select1,
         amount: Number(input),
         terms: Number(select2)
       });
-
-      console.log('Offer result:', result);
+      setUserCostInfo(result);
+      setIsLoading(false);
     };
 
     if (select1 && input && select2) {
@@ -76,12 +81,7 @@ const LoanForm = () => {
               Vestibulum a cursus eros, et tempor odio. Integer ut lobortis metus. Curabitur
               elementum sapien quam, lobortis blandit ipsum varius at.
             </small>
-            <UserCostInfo
-              data={[
-                { title: 'Monthly payment', value: '$85' },
-                { title: 'APR', value: '2.49%' }
-              ]}
-            />
+            <UserCostInfo data={userCostInfo} isLoading={isLoading} />
           </div>
         </form>
       </div>
